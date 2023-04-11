@@ -124,19 +124,12 @@ int main ()
 
 	FT_Face labelFace;
 	FT_New_Face(ft, "FiraCode-Regular.ttf", 0, &labelFace);
-	if (FT_New_Face(ft, "FiraCode-Regular.ttf", 0, &labelFace)) {
-		std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;  
-		return -1;
-	}
 	FT_Set_Pixel_Sizes(labelFace, 0, 22);
 
 	std::map<char, Character> characters;
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 	for (unsigned char c = 0; c < 128; c++) {
-		if (FT_Load_Char(labelFace, c, FT_LOAD_RENDER)) {
-			std::cout << "ERROR::FREETYTPE: Failed to load Glyph" << std::endl;
-			continue;
-		}
+		FT_Load_Char(labelFace, c, FT_LOAD_RENDER);
 
 		unsigned int characterTex;
 		glGenTextures(1, &characterTex);
