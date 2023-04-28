@@ -105,10 +105,10 @@ int main ()
 
 	// --
 
-	const std::string graphTitle {"voistar dev"};
+	const std::string graphTitle {""};
 	const std::string graphSubTitle {""};
-	const std::array<std::string, 6> tags { {"Friendly", "Funny", "good dev", "treats grea well", "appropriate", "treats unlimited well"} };
-	const std::array<float, 6> magnitudes { {0.9f, 0.6f, 0.45f, 0.1f, 0.4f, 0.1f} };
+	const std::array<std::string, 6> tags { {"", "", "", "", "", ""} };
+	const std::array<float, 6> magnitudes { {1.0f, 0.32f, 0.79f, 0.77f, 0.8f, 0.83f} };
 	constexpr float hexagonShrink = 0.5f;
 	auto xComponent = [&magnitudes] (std::size_t tagIndex, int angle, bool useMagnitude = true) -> float {
 		if (useMagnitude == true) return magnitudes.at(tagIndex) * (cos(angle * (M_PI / 180))) * hexagonShrink;
